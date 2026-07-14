@@ -1,0 +1,49 @@
+{
+  "profile_id": "",
+  "created_at": "",
+  "last_updated": "",
+
+  "profile": {
+
+    "age": null,
+
+    "gender": null,
+
+    "marital_status": null,
+
+    "state": null,
+
+    "district": null,
+
+    "years_resident": null,
+
+    "annual_family_income": null,
+
+    "employment_status": null,
+
+    "occupation": null,
+
+    "highest_qualification": null,
+
+    "currently_studying": null,
+
+    "category": null,
+
+    "disability_status": null,
+
+    "disability_percentage": null,
+
+    "is_farmer": null,
+
+    "land_holding_acres": null,
+
+    "owns_business": null,
+
+    "has_aadhaar": null,
+
+    "has_bank_account": null,
+
+    "receiving_other_govt_pension": null
+
+  }
+}

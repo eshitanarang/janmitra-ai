@@ -1,0 +1,31 @@
+{
+  "conversation_id": "",
+
+  "profile_id": "",
+
+  "status": "ACTIVE",
+
+  "session": {
+    "started_at": "",
+    "last_activity": "",
+    "completed_at": ""
+  },
+
+  "current_stage": "COLLECTING_PROFILE",
+
+  "current_attribute": "",
+
+  "asked_attributes": [],
+
+  "completed_attributes": [],
+
+  "pending_attributes": [],
+
+  "skipped_attributes": [],
+
+  "matched_schemes": [],
+
+  "conversation_complete": false,
+
+  "next_action": ""
+}

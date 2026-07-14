@@ -1,0 +1,195 @@
+{
+  "scheme_id": "DL-SW-001",
+  "scheme_name": "Delhi Old Age Pension Scheme",
+
+  "government": {
+    "level": "State",
+    "state": "Delhi"
+  },
+
+  "department": "Department of Social Welfare",
+
+  "category": "Social Security",
+
+  "subcategory": "Old Age Pension",
+
+  "description": "Provides monthly financial assistance through Direct Benefit Transfer (DBT) to eligible senior citizens residing in Delhi who have limited financial means.",
+
+  "benefits": [
+    {
+      "condition": "Age between 60 and 69 years",
+      "type": "Monthly Pension",
+      "amount": 2500,
+      "currency": "INR",
+      "frequency": "Monthly"
+    },
+    {
+      "condition": "Age 70 years and above",
+      "type": "Monthly Pension",
+      "amount": 3000,
+      "currency": "INR",
+      "frequency": "Monthly"
+    }
+  ],
+
+  "eligibility_rules": [
+    {
+      "id": "AGE001",
+      "field": "age",
+      "data_type": "number",
+      "unit": "years",
+      "label": "Age",
+      "question": "What is your age?",
+      "operator": ">=",
+      "value": 60,
+      "mandatory": true,
+      "reason": "Applicant must be at least 60 years old."
+    },
+    {
+      "id": "STATE001",
+      "field": "state",
+      "data_type": "string",
+      "unit": "",
+      "label": "State of Residence",
+      "question": "Which state do you currently reside in?",
+      "operator": "==",
+      "value": "Delhi",
+      "mandatory": true,
+      "reason": "Applicant must be a resident of Delhi."
+    },
+    {
+      "id": "RES001",
+      "field": "years_resident_in_delhi",
+      "data_type": "number",
+      "unit": "years",
+      "label": "Years of Residence in Delhi",
+      "question": "How many continuous years have you lived in Delhi?",
+      "operator": ">=",
+      "value": 5,
+      "mandatory": true,
+      "reason": "Applicant must have continuously resided in Delhi for at least five years immediately before applying."
+    },
+    {
+      "id": "INC001",
+      "field": "annual_family_income",
+      "data_type": "number",
+      "unit": "INR",
+      "label": "Annual Family Income",
+      "question": "What is your family's annual income from all sources?",
+      "operator": "<=",
+      "value": 100000,
+      "mandatory": true,
+      "reason": "Annual family income from all sources must not exceed ₹1,00,000."
+    },
+    {
+      "id": "AAD001",
+      "field": "has_aadhaar",
+      "data_type": "boolean",
+      "unit": "",
+      "label": "Aadhaar Card",
+      "question": "Do you have a valid Aadhaar card?",
+      "operator": "==",
+      "value": true,
+      "mandatory": true,
+      "reason": "Aadhaar is mandatory for identity verification and DBT."
+    }
+  ],
+
+  "disqualification_rules": [
+    {
+      "id": "DIS001",
+      "field": "receiving_other_govt_pension",
+      "data_type": "boolean",
+      "unit": "",
+      "label": "Receiving Other Government Pension",
+      "operator": "==",
+      "value": true,
+      "reason": "Applicant must not already be receiving another pension or financial assistance from any Central, State or Local Government for the same purpose."
+    }
+  ],
+
+  "required_documents": [
+    {
+      "name": "Aadhaar Card",
+      "mandatory": true,
+      "proof_type": "Identity"
+    },
+    {
+      "name": "Proof of Age",
+      "mandatory": true,
+      "proof_type": "Age"
+    },
+    {
+      "name": "Proof of Residence in Delhi",
+      "mandatory": true,
+      "proof_type": "Residence"
+    },
+    {
+      "name": "Income Certificate or Self Declaration",
+      "mandatory": true,
+      "proof_type": "Income"
+    },
+    {
+      "name": "Aadhaar-linked Bank Passbook",
+      "mandatory": true,
+      "proof_type": "Bank Account"
+    },
+    {
+      "name": "Recent Passport Size Photograph",
+      "mandatory": true,
+      "proof_type": "Photograph"
+    },
+    {
+      "name": "Caste Certificate (if claiming additional benefit, where applicable)",
+      "mandatory": false,
+      "proof_type": "Category"
+    }
+  ],
+
+  "application": {
+    "mode": "Online / Offline",
+    "application_type": "Self",
+    "official_portal": "https://edistrict.delhi.gov.in",
+    "steps": [
+      "Register or log in to the Delhi e-District Portal.",
+      "Select the Old Age Pension Scheme application.",
+      "Fill in the applicant's personal and contact information.",
+      "Upload all required supporting documents.",
+      "Review the application and submit it.",
+      "Track the application status online or through the District Social Welfare Office.",
+      "Upon approval, the pension amount is credited monthly through Direct Benefit Transfer (DBT)."
+    ]
+  },
+
+  "source": {
+    "source_type": "Website",
+    "official_url": "https://socialwelfare.delhi.gov.in/social/financial-assistance-schemes",
+    "last_verified": "2026-07-12",
+    "verified_by": "Human Review"
+  },
+
+  "metadata": {
+    "status": "Active",
+    "last_updated": "2026-07-12",
+    "version": 1
+  },
+
+  "ai": {
+    "summary": "Provides monthly financial assistance to eligible senior citizens residing in Delhi through Direct Benefit Transfer.",
+
+    "keywords": [
+      "old age pension",
+      "senior citizen",
+      "social welfare",
+      "Delhi",
+      "DBT",
+      "financial assistance",
+      "elderly"
+    ],
+
+    "related_schemes": [
+      "Delhi Widow Pension Scheme",
+      "Delhi Disability Pension Scheme"
+    ]
+  }
+}

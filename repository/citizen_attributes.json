@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-07-12",
+  "description": "Master registry of citizen attributes used by the JanMitra AI conversation engine, citizen profile builder and eligibility rule engine.",
+
+  "attributes": [
+
+    {
+      "field": "age",
+      "category": "Personal",
+      "label": "Age",
+      "data_type": "number",
+      "unit": "years",
+      "priority": 1,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Used to determine eligibility for age-based schemes.",
+      "conversation": {
+        "goal": "Collect citizen's age.",
+        "tone": "Friendly",
+        "examples": [
+          "May I know your age?",
+          "How old are you?",
+          "Could you tell me your age?"
+        ],
+        "follow_up_if_unclear": "Could you tell me your completed age in years?"
+      },
+      "validation": {
+        "required": true,
+        "minimum": 0,
+        "maximum": 120
+      }
+    },
+
+    {
+      "field": "gender",
+      "category": "Personal",
+      "label": "Gender",
+      "data_type": "string",
+      "priority": 2,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Some schemes are gender specific.",
+      "conversation": {
+        "goal": "Collect gender.",
+        "tone": "Friendly",
+        "examples": [
+          "What is your gender?",
+          "May I know your gender?"
+        ]
+      },
+      "validation": {
+        "required": true
+      }
+    },
+
+    {
+      "field": "marital_status",
+      "category": "Personal",
+      "label": "Marital Status",
+      "data_type": "string",
+      "priority": 3,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Required for widow and family welfare schemes.",
+      "conversation": {
+        "goal": "Collect marital status.",
+        "tone": "Friendly",
+        "examples": [
+          "What is your marital status?"
+        ]
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "state",
+      "category": "Location",
+      "label": "State",
+      "data_type": "string",
+      "priority": 1,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Many schemes are state specific.",
+      "conversation": {
+        "goal": "Collect current state.",
+        "tone": "Friendly",
+        "examples": [
+          "Which state do you currently live in?"
+        ]
+      },
+      "validation": {
+        "required": true
+      }
+    },
+
+    {
+      "field": "district",
+      "category": "Location",
+      "label": "District",
+      "data_type": "string",
+      "priority": 4,
+      "required_for_matching": false,
+      "depends_on": ["state"],
+      "reason_for_collection": "Some schemes are district specific.",
+      "conversation": {
+        "goal": "Collect district."
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "years_resident",
+      "category": "Location",
+      "label": "Years of Residence",
+      "data_type": "number",
+      "unit": "years",
+      "priority": 3,
+      "required_for_matching": true,
+      "depends_on": ["state"],
+      "reason_for_collection": "Some schemes require minimum years of residence.",
+      "conversation": {
+        "goal": "Collect years of residence."
+      },
+      "validation": {
+        "required": false,
+        "minimum": 0
+      }
+    },
+
+    {
+      "field": "annual_family_income",
+      "category": "Financial",
+      "label": "Annual Family Income",
+      "data_type": "number",
+      "unit": "INR",
+      "priority": 1,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Income is one of the most common eligibility criteria.",
+      "conversation": {
+        "goal": "Collect annual family income.",
+        "examples": [
+          "Approximately what is your family's annual income?"
+        ]
+      },
+      "validation": {
+        "required": true,
+        "minimum": 0
+      }
+    },
+
+    {
+      "field": "employment_status",
+      "category": "Employment",
+      "label": "Employment Status",
+      "data_type": "string",
+      "priority": 2,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Employment schemes depend on employment status.",
+      "conversation": {
+        "goal": "Collect employment status."
+      },
+      "validation": {
+        "required": true
+      }
+    },
+
+    {
+      "field": "occupation",
+      "category": "Employment",
+      "label": "Occupation",
+      "data_type": "string",
+      "priority": 3,
+      "required_for_matching": true,
+      "depends_on": ["employment_status"],
+      "reason_for_collection": "Many schemes target specific occupations.",
+      "conversation": {
+        "goal": "Collect occupation."
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "highest_qualification",
+      "category": "Education",
+      "label": "Highest Qualification",
+      "data_type": "string",
+      "priority": 3,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Education schemes depend on qualification.",
+      "conversation": {
+        "goal": "Collect education."
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "currently_studying",
+      "category": "Education",
+      "label": "Currently Studying",
+      "data_type": "boolean",
+      "priority": 3,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Student schemes require current education status.",
+      "conversation": {
+        "goal": "Know if user is currently studying."
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "category",
+      "category": "Social",
+      "label": "Social Category",
+      "data_type": "string",
+      "priority": 2,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Reserved category schemes require caste category.",
+      "conversation": {
+        "goal": "Collect social category."
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "disability_status",
+      "category": "Health",
+      "label": "Disability Status",
+      "data_type": "boolean",
+      "priority": 3,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Disability schemes require disability status.",
+      "conversation": {
+        "goal": "Know whether the citizen has a disability."
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "disability_percentage",
+      "category": "Health",
+      "label": "Disability Percentage",
+      "data_type": "number",
+      "unit": "%",
+      "priority": 4,
+      "required_for_matching": true,
+      "depends_on": ["disability_status"],
+      "reason_for_collection": "Some disability schemes require minimum disability percentage.",
+      "conversation": {
+        "goal": "Collect disability percentage."
+      },
+      "validation": {
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+
+    {
+      "field": "is_farmer",
+      "category": "Agriculture",
+      "label": "Farmer",
+      "data_type": "boolean",
+      "priority": 3,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Agriculture schemes require farmer status.",
+      "conversation": {
+        "goal": "Determine whether citizen is a farmer."
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "land_holding_acres",
+      "category": "Agriculture",
+      "label": "Land Holding",
+      "data_type": "number",
+      "unit": "acres",
+      "priority": 5,
+      "required_for_matching": true,
+      "depends_on": ["is_farmer"],
+      "reason_for_collection": "Some agriculture schemes depend on land size.",
+      "conversation": {
+        "goal": "Collect land holding."
+      },
+      "validation": {
+        "minimum": 0
+      }
+    },
+
+    {
+      "field": "owns_business",
+      "category": "Business",
+      "label": "Owns Business",
+      "data_type": "boolean",
+      "priority": 3,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Business schemes require business ownership.",
+      "conversation": {
+        "goal": "Determine business ownership."
+      },
+      "validation": {
+        "required": false
+      }
+    },
+
+    {
+      "field": "has_aadhaar",
+      "category": "Documents",
+      "label": "Has Aadhaar",
+      "data_type": "boolean",
+      "priority": 2,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Most government schemes require Aadhaar.",
+      "conversation": {
+        "goal": "Check Aadhaar availability."
+      },
+      "validation": {
+        "required": true
+      }
+    },
+
+    {
+      "field": "has_bank_account",
+      "category": "Documents",
+      "label": "Has Bank Account",
+      "data_type": "boolean",
+      "priority": 2,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Most benefits are transferred via DBT.",
+      "conversation": {
+        "goal": "Determine whether the citizen has a bank account."
+      },
+      "validation": {
+        "required": true
+      }
+    },
+
+    {
+      "field": "receiving_other_govt_pension",
+      "category": "Social",
+      "label": "Receiving Government Pension",
+      "data_type": "boolean",
+      "priority": 2,
+      "required_for_matching": true,
+      "depends_on": [],
+      "reason_for_collection": "Some pension schemes prohibit receiving another government pension.",
+      "conversation": {
+        "goal": "Determine whether citizen already receives a government pension."
+      },
+      "validation": {
+        "required": false
+      }
+    }
+
+  ]
+}

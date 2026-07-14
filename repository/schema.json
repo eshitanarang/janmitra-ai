@@ -1,0 +1,86 @@
+{
+  "scheme_id": "",
+  "scheme_name": "",
+
+  "government": {
+    "level": "",
+    "state": ""
+  },
+
+  "department": "",
+  "category": "",
+  "subcategory": "",
+  "description": "",
+
+  "benefits": [
+    {
+      "condition": "",
+      "type": "",
+      "amount": 0,
+      "currency": "INR",
+      "frequency": ""
+    }
+  ],
+
+  "eligibility_rules": [
+    {
+      "id": "",
+      "field": "",
+      "data_type": "",
+      "unit": "",
+      "label": "",
+      "question": "",
+      "operator": "",
+      "value": "",
+      "mandatory": true,
+      "reason": ""
+    }
+  ],
+
+  "disqualification_rules": [
+    {
+      "id": "",
+      "field": "",
+      "data_type": "",
+      "unit": "",
+      "label": "",
+      "operator": "",
+      "value": "",
+      "reason": ""
+    }
+  ],
+
+  "required_documents": [
+    {
+      "name": "",
+      "mandatory": true,
+      "proof_type": ""
+    }
+  ],
+
+  "application": {
+    "mode": "",
+    "application_type": "",
+    "official_portal": "",
+    "steps": []
+  },
+
+  "source": {
+    "source_type": "",
+    "official_url": "",
+    "last_verified": "",
+    "verified_by": ""
+  },
+
+  "metadata": {
+    "status": "Active",
+    "last_updated": "",
+    "version": 1
+  },
+
+  "ai": {
+    "summary": "",
+    "keywords": [],
+    "related_schemes": []
+  }
+}
